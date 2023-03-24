@@ -1,5 +1,5 @@
 import { useState , useEffect } from 'react'
-import { APIkey } from '../../../config/key.js'
+import { APIkey } from '../../key'
 import './Popular.css'
 
 function Popular() {
