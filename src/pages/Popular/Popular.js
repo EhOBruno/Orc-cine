@@ -31,7 +31,7 @@ function Popular() {
         {movies.map(movie => {
             return(
                 <li className='movie'>
-                    <img src={`${imagePath}${movie.poster_path}`} alt='poster'/>
+                    <Link to={`/detalhes/${movie.id}`}><img src={`${imagePath}${movie.poster_path}`} alt='poster'/></Link>
                     <p>{movie.title}</p>
                 </li>
             )
