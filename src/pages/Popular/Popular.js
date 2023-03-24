@@ -1,4 +1,5 @@
 import { useState , useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { APIkey } from '../../key'
 import './Popular.css'
 
@@ -18,8 +19,8 @@ function Popular() {
         <header>
             <nav>
                 <ul className='navbar'>
-                    <li>Registrar-se</li>
-                    <li>Entrar</li>
+                    <li><Link to={'/cadastro'} className='page'>Registrar-se</Link></li>
+                    <li><Link to={'/login'} className='page'>Entrar</Link></li>
                 </ul>
             </nav>
         </header>
