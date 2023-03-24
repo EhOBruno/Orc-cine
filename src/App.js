@@ -1,9 +1,10 @@
 import './App.css';
+import Popular from './pages/Popular/Popular';
 
 function App() {
   return (
     <>
-      <h1>Hello World</h1>
+      <Popular/>
     </>
   );
 }

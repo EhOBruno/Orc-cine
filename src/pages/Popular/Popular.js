@@ -8,7 +8,7 @@ function Popular() {
     const imagePath = 'https://image.tmdb.org/t/p/w500'
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIkey}&language=en-US&page=1`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIkey}&language=pt-BR&page=1`)
         .then(response => response.json())
         .then(data => setMovies(data.results))
     })
