@@ -33,7 +33,7 @@ function Detalhes() {
         <h1>{movie.title}</h1>
         <p>Sinopse: {movie.sinopse}</p>
         <p className="data-lancamento">Data de lançamento: {movie.releaseDate}</p>
-        <Link to="/"><button>Voltar</button></Link>
+        <Link to="/popular"><button>Voltar</button></Link>
       </div>
     </div>
   )
