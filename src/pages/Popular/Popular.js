@@ -33,6 +33,7 @@ function Popular() {
                 <li className='movie'>
                     <Link to={`/detalhes/${movie.id}`}><img src={`${imagePath}${movie.poster_path}`} alt='poster'/></Link>
                     <p>{movie.title}</p>
+                    <p> Nota: {movie.vote_average} </p>
                 </li>
             )
         })}
