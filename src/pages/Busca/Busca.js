@@ -1,22 +1,28 @@
-import { useState , useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import NavBar from '../../components/NavBar'
-import { APIkey } from '../../key'
-import './Popular.css'
+import { useEffect, useState } from "react"
+import { Link, useSearchParams } from "react-router-dom"
+import NavBar from "../../components/NavBar"
+import { APIkey } from "../../key"
+import "./Busca.css"
 
-function Popular() {
+function Busca() {
+
+    const [searchParams] = useSearchParams()
 
     const [movies, setMovies] = useState([])
+    const query = searchParams.get("q")
+
     const imagePath = 'https://image.tmdb.org/t/p/w500'
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIkey}&language=pt-BR&page=1`)
-        .then(response => response.json())
-        .then(data => setMovies(data.results))
-    })
+        const getSearchedMovies = async (url) => {
+            const res = await fetch(url)
+            const data = await res.json()
 
-    const [search, setSearch]= useState('')
-    const filteredMovies = movies.filter((movies) => movies.title.includes(search))
+            setMovies(data.results)
+        }
+        const searchWithQueryURL = `https://api.themoviedb.org/3/search/movie?api_key=${APIkey}&language=pt-BR&query=${query}`
+        getSearchedMovies(searchWithQueryURL)
+    }, [query])
 
   return (
     <div>
@@ -30,10 +36,9 @@ function Popular() {
             </nav>
         </header>
 
-      <h1>Filmes mais populares!</h1>
-
+      <h2>Resultados para <span>{query}</span></h2>
       <ul className='popular-movies'>
-        {filteredMovies.map(movie => {
+        {movies.map(movie => {
             return(
                 <li className='movie'>
                     <Link to={`/detalhes/${movie.id}`}><img src={`${imagePath}${movie.poster_path}`} alt='poster'/></Link>
@@ -47,4 +52,4 @@ function Popular() {
   )
 }
 
-export default Popular
+export default Busca
