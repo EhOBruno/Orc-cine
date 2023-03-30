@@ -15,7 +15,7 @@ function Home() {
   return (
     <div>
       <p>O <span>Orc'cine</span> é um site para você que ama filmes! Aqui você pode ver tudo sobre seus filmes favoritos e muito mais!</p>
-        <a href={`https://www.themoviedb.org/authenticate/${token}`}>registre-se</a>
+        <a href={`https://www.themoviedb.org/authenticate/${token}?redirect_to=http://localhost:3000/approved`}>registre-se</a>
         <p>ou</p>
         <Link to={'/popular'}>navegue livremente!</Link>
     </div>
