@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+home {
+    padding: 0px;
+    margin: 0px;
+}
+
+.home {
+    display: flex;
+}
+
+.textos {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+    padding: 0;
+
+}

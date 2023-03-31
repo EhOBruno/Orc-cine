@@ -40,7 +40,7 @@ function Busca() {
     )
 
   return (
-    <div>
+    <div className="popular">
         <header>
             <nav>
                 <ul className='navbar'>
