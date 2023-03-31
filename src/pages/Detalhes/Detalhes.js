@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import { useParams } from "react-router-dom"
 import { APIkey } from "../../key"
+import { FaStar } from "react-icons/fa";
+import './Detalhes.css'
 
 function Detalhes() {
 
@@ -34,8 +36,8 @@ function Detalhes() {
         <h1>{movie.title}</h1>
         <p>Sinopse: {movie.sinopse}</p>
         <p className="data-lancamento">Data de lançamento: {movie.releaseDate}</p>
-        <p className="avaliacao"> Nota: {movie.voteAverage} </p>
-        <Link to="/popular"><button>Voltar</button></Link>
+        <p > <FaStar className="avaliacao" />  {movie.voteAverage} </p>
+        <Link to="/popular"><button className="voltar">Voltar</button></Link>
       </div>
     </div>
   )
