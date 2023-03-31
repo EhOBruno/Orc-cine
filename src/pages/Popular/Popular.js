@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import NavBar from '../../components/NavBar'
 import { APIkey } from '../../key'
 import './Popular.css'
+import { FaStar } from "react-icons/fa";
 
 function Popular() {
 
@@ -54,7 +55,7 @@ function Popular() {
                 <li className='movie' key={movie.id}>
                     <Link to={`/detalhes/${movie.id}`}><img src={`${imagePath}${movie.poster_path}`} alt='poster'/></Link>
                     <p>{movie.title}</p>
-                    <p> Nota: {movie.vote_average} </p>
+                    <p> <FaStar /> {movie.vote_average} </p>
                 </li>
             )
         })}

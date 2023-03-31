@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-
+import { FaSearch } from "react-icons/fa";
 function NavBar() {
 
     const [search, setSearch] = useState('')
@@ -24,7 +24,7 @@ function NavBar() {
                 onChange={(e) => setSearch(e.target.value)}
                 value={search}
             />
-            <button type='submit'>Procurar</button>
+            <button type='submit'><FaSearch /></button>
         </form>
     </nav>
   )

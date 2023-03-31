@@ -1,0 +1,17 @@
+.filme{
+    display: flex;
+    justify-content: space-between;
+    padding: 8rem 14rem 8rem 5rem;
+}
+.detalhes{
+    max-width: 50%;
+}
+.voltar{
+    padding: 0.8rem 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: #412EBA;
+}
+.avaliacao{
+    color: yellow;
+}
