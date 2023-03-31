@@ -4,6 +4,7 @@ import NavBar from "../../components/NavBar"
 import { APIkey } from "../../key"
 import "./Busca.css"
 import Login from "../../components/Login"
+import FilterMovies from "../../components/FilterMovies"
 
 function Busca() {
 
@@ -25,12 +26,26 @@ function Busca() {
         getSearchedMovies(searchWithQueryURL)
     }, [query])
 
+    const [filterTextValue, setFilterTextValue] = useState('en')
+
+    function onFilterValueSelected(filterValue){
+      setFilterTextValue(filterValue)
+    }
+
+    const filteredMovies = movies.filter((movies) => {
+          if(filterTextValue===movies.original_language){
+            return movies.original_language===filterTextValue
+          }
+    }
+    )
+
   return (
     <div>
         <header>
             <nav>
                 <ul className='navbar'>
                     <NavBar/>
+                    <FilterMovies onFilterValueSelected={onFilterValueSelected} />
                     <Login/>
                 </ul>
             </nav>
@@ -38,7 +53,7 @@ function Busca() {
 
       <h2>Resultados para <span>{query}</span></h2>
       <ul className='popular-movies'>
-        {movies.map(movie => {
+        {filteredMovies.map(movie => {
             return(
                 <li className='movie'>
                     <Link to={`/detalhes/${movie.id}`}><img src={`${imagePath}${movie.poster_path}`} alt='poster'/></Link>
