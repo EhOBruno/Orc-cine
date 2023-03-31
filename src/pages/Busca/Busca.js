@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom"
 import NavBar from "../../components/NavBar"
 import { APIkey } from "../../key"
 import "./Busca.css"
+import Login from "../../components/Login"
 
 function Busca() {
 
@@ -30,8 +31,7 @@ function Busca() {
             <nav>
                 <ul className='navbar'>
                     <NavBar/>
-                    <li><Link to={'/cadastro'} className='page'>Registrar-se</Link></li>
-                    <li><Link to={'/login'} className='page'>Entrar</Link></li>
+                    <Login/>
                 </ul>
             </nav>
         </header>

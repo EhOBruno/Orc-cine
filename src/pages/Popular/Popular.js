@@ -5,28 +5,18 @@ import { APIkey } from '../../key'
 import './Popular.css'
 import { FaStar } from "react-icons/fa";
 import FilterMovies from "../../components/FilterMovies"
+import Login from '../../components/Login'
 
 function Popular() {
 
     const [movies, setMovies] = useState([])
     const imagePath = 'https://image.tmdb.org/t/p/w500'
 
-    const [sessionId, setSessionId] = useState('')
-    const [token, setToken] = useState('')
-
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIkey}&language=pt-BR&page=1`)
         .then(response => response.json())
         .then(data => setMovies(data.results))
     },[])
-
-    fetch(`https://api.themoviedb.org/3/authentication/token/new?api_key=${APIkey}`)
-        .then(response => response.json())
-        .then(data => setToken(data.request_token))
-
-    function aproveToken() {
-      return(window.location.href = `https://www.themoviedb.org/authenticate/${token}?redirect_to=http://localhost:3000/popular`)
-    }
     
     const [filterTextValue, setFilterTextValue] = useState('en')
 
@@ -48,7 +38,7 @@ function Popular() {
                 <ul className='navbar'>
                     <NavBar/>
                     <FilterMovies onFilterValueSelected={onFilterValueSelected} />
-                    <li><button onClick={aproveToken}>Entrar</button></li>
+                    <Login/>
                 </ul>
             </nav>
         </header>
