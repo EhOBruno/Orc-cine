@@ -1,5 +1,6 @@
 import { useState , useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import FilterMovies from '../../components/FilterMovies'
 import NavBar from '../../components/NavBar'
 import { APIkey } from '../../key'
 import './Popular.css'
@@ -15,22 +16,32 @@ function Popular() {
         .then(data => setMovies(data.results))
     })
 
-    const [search, setSearch]= useState('')
-    const filteredMovies = movies.filter((movies) => movies.title.includes(search))
+    const [filterTextValue, setFilterTextValue]= useState('en')
 
+    
+    function onFilterValueSelected(filterValue){
+      setFilterTextValue(filterValue)
+    }
+    const filteredMovies = movies.filter((movies) => {
+          if(filterTextValue===movies.original_language){
+            return movies.original_language===filterTextValue
+          }
+    }
+    )
   return (
     <div>
         <header>
             <nav>
                 <ul className='navbar'>
                     <NavBar/>
+                    <FilterMovies onFilterValueSelected={onFilterValueSelected} />
                     <li><Link to={'/cadastro'} className='page'>Registrar-se</Link></li>
                     <li><Link to={'/login'} className='page'>Entrar</Link></li>
                 </ul>
             </nav>
         </header>
 
-      <h1>Filmes mais populares!</h1>
+      <h1>Os Filmes Mais Populares!</h1>
 
       <ul className='popular-movies'>
         {filteredMovies.map(movie => {
