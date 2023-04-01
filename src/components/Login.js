@@ -10,7 +10,7 @@ function Login() {
     .then(data => setToken(data.request_token))
 
     function aproveToken() {
-        return(window.location.href = `https://www.themoviedb.org/authenticate/${token}?redirect_to=http://localhost:3000/popular`)
+        return(window.location.href = `https://www.themoviedb.org/authenticate/${token}?redirect_to=http://localhost:3000`)
     }
 
   return (
