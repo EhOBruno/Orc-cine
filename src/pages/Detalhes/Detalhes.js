@@ -37,7 +37,7 @@ function Detalhes() {
         <p>Sinopse: {movie.sinopse}</p>
         <p className="data-lancamento">Data de lançamento: {movie.releaseDate}</p>
         <p > <FaStar className="avaliacao" />  {movie.voteAverage} </p>
-        <Link to="/popular"><button className="voltar">Voltar</button></Link>
+        <Link to="/"><button className="voltar">Voltar</button></Link>
       </div>
     </div>
   )
